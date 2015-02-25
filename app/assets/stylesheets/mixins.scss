@@ -1,0 +1,91 @@
+/* FONTFACE --------------------------------------------------------------------------------*/
+
+
+@font-face {
+    font-family: Helvetica;
+    src: asset-path('Helvetica.otf', font);
+}
+
+/*@include font-face("Chalkduster", font-files("../fonts/Chalkduster.ttf", truetype));*/
+/*@include font-face("Helvetica", font-files("../fonts/Helvetica.otf", opentype));*/
+
+
+/* LAYOUT --------------------------------------------------------------------------------*/
+
+@mixin centerpage{
+  min-width: 960px;
+  margin:0 auto;
+}
+
+@mixin centerpage-especial{
+  width: 960px;
+  margin:0 auto;
+}
+
+/* CONTENIDO -------------------------------------*/
+
+@mixin textoprincipal{
+  font-family:"Rock Salt", Verdana, sans-serif;
+  text-align:center;
+  display:block;
+}
+
+@mixin pagetitle{
+  font-family:"Chelsea Market", Verdana, sans-serif;
+  text-align:center;
+  display:block;
+  text-transform:uppercase;
+  color:#888;
+  @include text-shadow(0 -2px 0px rgba(0, 0, 0, 0.5));
+  letter-spacing:-0.07em;
+  position:absolute;
+  width:99.99%;
+  @include opacity(0.75);
+}
+
+
+/* DECORACION -------------------------------------*/
+
+@mixin borde-oscuro-bottom{
+  border-bottom:1px solid #62626f;
+  @include box-shadow(inset 0 -1px 0 #000);
+}
+
+@mixin borde-oscuro-top{
+  border-top:1px solid #000;
+  @include box-shadow(inset 0 1px 0 #62626f);
+}
+
+
+/* FORMS -------------------------------------*/
+
+@mixin input-controls{
+  border:none;
+  @include textoprincipal;
+  font-size:18px;
+  /*background:#e6e6e6;*/
+  /*@include background(linear-gradient(center top , #e6e6e6, #d9d9d9), repeat scroll 0 0 transparent);*/
+  background: url(image_path('cement.png')) repeat 0 #e6e6e6;
+  padding:9px 0;
+  width:100%;
+  @include border-radius(12px);
+  @include box-shadow(inset 0 2px 3px #555);
+}
+
+@mixin buttons{
+  font-family:Helvetica, Arial, sans-serif;
+  @include background(linear-gradient(center top , #c3c3c3, #a7a7a7), repeat scroll 0 0 transparent);
+  border:1px solid #999999;
+  @include box-shadow(inset 0 1px 0 #f2f2f2);
+  @include border-radius(6px);
+  @include text-shadow(0 1px 0 #f2f2f2);
+  padding:16px 10px 10px;
+  color:#333;
+  font-size:16px;
+  line-height:14px;
+  letter-spacing:-0.03em;
+  cursor:pointer;
+  &:hover{
+    @include background(linear-gradient(center top , #ccc, #c3c3c3), repeat scroll 0 0 transparent);
+  }
+}

@@ -1,0 +1,46 @@
+%section#board
+
+  %article.frase#frase
+
+  %article.actions#actions
+    %ul
+      %li
+        %a.buscar.someClass{:href => "#search", :title => "Buscar Frases"} Buscar Frases
+      %li
+        %a.agregar.someClass{:href => "#frases/new", :title => "Agregar Nueva Frase"} Agregar Frases
+      %li
+        %a.comentar.someClass{:href => "#comment", :title => "Comentarios"} Commentarios
+      %li
+        %a.otrafrase.someClass{:href => "#", :title => "Cambiar Frase"} Otra Frase
+
+%section#hidden-sections
+
+  /
+    %article#search-box
+
+    %article#adding-box
+
+    %article#comments-box
+      %h3 No hay comentarios
+
+%script{type: "text/template", id: "frase-template"}
+  %h1#frase_completa
+    <%= texto %>
+  %h2#frase_autor
+    <%= autor %>
+
+%script{type: "text/template", id: "search-box-template"}
+  %input{:placeholder => "Nombre del compañero", :type => "text"}/
+  %input{:type => "submit", :value => "Buscar"}/
+
+%script{type: "text/template", id: "adding-box-template"}
+  %a.open-select{:href => "javascript:void(0);"}
+  = form_for Frase.new, :remote => true, data: {type: "json"} do |f|
+    = f.text_field :autor, :placeholder => "Quien lo dijo", class: "who"
+    = f.text_field :texto, :placeholder => "Que dijo"
+    = f.submit "Agregar"
+
+%script{type: "text/template", id: "comments-box-template"}
+  %h3 No hay comentarios
+
+

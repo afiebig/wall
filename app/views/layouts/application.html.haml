@@ -1,0 +1,36 @@
+!!!
+%html
+  %head
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+      %title= content_for?(:title) ? yield(:title) : "El muro de las frases desafortunadas de Continuum"
+      %meta{:content => content_for?(:description) ? yield(:description) : "El muro de las frases desafortunadas de Continuum", :name => "description"}
+        = stylesheet_link_tag "application", :media => "all"
+        = javascript_include_tag "application"
+        = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Rock+Salt|Chelsea+Market'
+        = csrf_meta_tags
+        = yield(:head)
+  %body.ladrillo{:class => "#{controller_name} #{action_name}"}
+    .wrapper
+      %header
+        %h1
+          El muro de las
+        %h2
+          frases desafortunadas
+        /
+          <figure>
+          <a href="http://continuum.cl" id="logo">
+          <img src="images/isotipo_continuum.png" border="0">
+          </a>
+          <figcaption>
+          Continuum
+          </figcaption>
+          </figure>
+      %section#content
+        .group-content
+          = render 'layouts/messages'
+          = yield
+      .push
+    %footer
+      .logo_footer Continuum
+      %p &copy; 2012 Este es un proyecto de divertimento desarrollado por el equipo de Continuum
+    / ! end of #container

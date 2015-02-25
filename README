@@ -1,0 +1,28 @@
+Fuentes de http://wall.continuum.cl
+
+Entorno de desarrollo
+=====================
+
+Pre-requisitos
+--------------
+
+- MongoDB. (En Mac: $ brew install mongo)
+
+Setup
+-----
+
+$ createuser wall -s -P -h localhost # dejar password en blanco
+$ rake db:create:all
+$ rake db:migrate
+$ rails server
+
+Deploy
+======
+
+Solo la primera vez, asegurarse de que el remote git de heroku este configurado:
+
+$ heroku git:remote -a continuumwall
+
+Luego, para hacer deploy:
+
+$ rake deploy

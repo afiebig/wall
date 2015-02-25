@@ -1,0 +1,278 @@
+@import "mixins";
+@import "compass";
+
+html, body{
+  height:100%;
+}
+
+
+body{
+  font-family: Helvetica, Arial, sans-serif;
+  &.ladrillo{
+    background: url(image_path('BrickLargeBrown0019.jpg')) repeat center 0 transparent;
+  }
+  &.ceramica{
+  background: url(image_path('BrickLargeBrown0019.jpg')) repeat center 0 transparent;
+  }
+}
+
+
+/*---------------------------------------------- General Layout ------------------------------------------*/
+
+header{
+  background: url(image_path('cement.png')) repeat center bottom;
+  height:155px;
+  h1{
+    @include pagetitle;
+    top:40px;
+      font-size:190%;
+  }
+  h2{
+    @include pagetitle;
+    position:absolute;
+    top:70px;
+      font-size:290%;
+  }
+}
+
+figure{
+  position:relative;
+  height:150px;
+  a{
+    left:50%;
+    display:block;
+    position:absolute;
+    top:20px;
+    margin-left:-50px;
+    z-index:10;
+  }
+  figcaption{
+    position:absolute;
+    visibility:hidden;
+  }
+}
+
+.wrapper{
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -116px;
+}
+
+#content{
+  @include box-shadow(inset 0 3px 4px rgba(0,0,0,0.2));
+  .group-content{
+    @include centerpage;
+    #board{
+      @include box-sizing(border-box);
+      .frase{
+        position: absolute;
+        width: 99%;
+        top: 50%;
+        height: 100px;
+        padding-top: 10px;
+        margin-top: -55px;
+        @include opacity(0.62);
+        h1{
+          @include textoprincipal;
+          @include rotate(-2deg);
+          font-size:280%;
+          line-height:1.1em;
+          color:#000;
+          &:before{
+            content:open-quote;
+          }
+          &:after{
+            content:close-quote;
+          }
+        }
+        h2{
+          font-size:1.3em;
+          @include textoprincipal;
+          margin-top:2px;
+          text-indent:190px;
+          @include rotate(0.5deg);
+          color:#000;
+        }
+      }
+      .actions{
+        text-align: center;
+        padding: 12px 0;
+        position: absolute;
+        width: 99.99%;
+        bottom: 110px;
+        ul{
+          list-style:none;
+          padding:0;
+          margin:0;
+          li{
+            display:inline-block;
+          }
+        }
+      }
+    }
+    #hidden-sections{
+      @include centerpage-especial;
+      padding-top:18px;
+      #search-box,
+      #comments-box,
+      #adding-box{
+        padding:18px 8px;
+        //display:none;
+
+      }
+    }
+  }
+}
+
+footer{
+  background: url(image_path('BrickRound.jpg')) repeat center 0;
+  padding-top: 28px;
+  .logo_footer{
+    display:block;
+    text-indent:-100000px;
+    background:url(image_path('logo_footer.png')) no-repeat 0 0;
+    width:122px;
+    height:18px;
+    margin:0 auto;
+    @include opacity(0.5);
+  }
+  p{
+    font-size:12px;
+    @include text-shadow(1px 1px 0 #DADADA);
+    display:block;
+    text-align:center;
+    padding-top:10px;
+    color:#666;
+  }
+}
+
+footer{
+  height:88px;
+}
+
+.push{
+  height:118px;
+}
+
+
+/*---------------------------------------------- Elements ------------------------------------------*/
+
+.actions{
+  a{
+    display:block;
+    text-indent:-100000px;
+    height:60px;
+    width:60px;
+    margin:0 2px;
+    background:url(image_path('sprite_controls.png')) no-repeat;
+    border:1px solid transparent;
+    @include border-radius(4px);
+    &:hover{
+      border-color:#a69f94;
+      @include box-shadow(inset 0 1px 1px #fff);
+    }
+    &:active{
+      border-color:#3d424a;
+      @include box-shadow(inset 0 1px 1px #fff);
+    }
+    &.buscar{
+      background-position:0 0;
+    }
+    &.comentar{
+      background-position:0 -60px;
+    }
+    &.agregar{
+      background-position:0 -120px;
+    }
+    &.otrafrase{
+      background-position:0 -180px;
+    }
+  }
+}
+
+#search-box{
+  position:relative;
+  input[placeholder], [placeholder], *[placeholder], input::-webkit-input-placeholder{
+     color:#777 !important;
+     @include text-shadow(none);
+    }
+  input[type="text"],
+  {
+    @include input-controls;
+    width:100%;
+  }
+  input[type="submit"]{
+    @include buttons;
+    position:absolute;
+    right:18px;
+    margin-top:-53px;
+  }
+}
+
+#adding-box{
+  position:relative;
+  overflow:hidden;
+  input[placeholder], [placeholder], *[placeholder], input::-webkit-input-placeholder{
+     color:#777 !important;
+     @include text-shadow(none);
+   }
+  .open-select{
+
+  }
+  input[type="text"]{
+    @include input-controls;
+    padding:9px 130px 9px 16px;
+    width:410px;
+    float: left;
+    text-align:left;
+    &.who{
+      width:230px;
+      margin-right:12px;
+    }
+  }
+  select{
+    border:none;
+    @include textoprincipal;
+    font-size:24px;
+    background:none;
+    color:#FFF;
+    padding:15px 12px 8px;
+    width:370px;
+    float: left;
+    text-align:left;
+    -webkit-appearance:none;
+    background:#282830;
+    @include box-shadow(inset 0 1px 1px rgba(0, 0, 0, 0.2));
+    @include border-radius(12px);
+    height:63px;
+    option{
+      font-size:12px;
+      font-family:Arial;
+      color:#000;
+      @include text-shadow(none);
+      background:#fff;
+      &:focus{
+        outline:0px;
+      }
+    }
+  }
+  input[type="submit"]{
+    @include buttons;
+    position:absolute;
+    right:18px;
+    margin-top:12px;
+  }
+}
+
+#comments-box{
+  h3{
+    @include textoprincipal;
+    display:block;
+    text-align:center;
+    padding:20px 16px;
+    font-size:28px;
+    background: rgba(0, 0, 0, 0.1);
+    @include border-radius(12px);
+  }
+}
