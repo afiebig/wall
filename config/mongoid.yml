@@ -17,10 +17,10 @@ test:
 production:
   sessions:
     default:
-      #uri: <%= ENV['MONGOHQ_URL'] %>
+      uri: mongodb://admin:dGaKsbGkMPBc@127.5.0.130:27017/
       database: wallalemana
-      hosts:
-        - ex-std-node185.prod.rhcloud.com:27017
+      #hosts:
+      #  - 127.5.0.130:27017
       username: admin
       password: dGaKsbGkMPBc
       options:
