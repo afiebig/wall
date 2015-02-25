@@ -27,3 +27,4 @@ gem "heroku-deflater", :group => :production
 gem "mongoid", "~> 3.0.0"
 gem "letter_opener", :group => :development
 gem "newrelic_rpm"
+gem "rack",">=1.4.5"
