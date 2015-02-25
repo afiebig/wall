@@ -10,7 +10,7 @@ class FrasesController < ApplicationController
 
   def create
     @frase = Frase.create(params[:frase])
-    FrasesMailer.nueva_frase(@frase).deliver
+    #FrasesMailer.nueva_frase(@frase).deliver
     respond_to do |format|
       format.json do
         render :json => @frase
