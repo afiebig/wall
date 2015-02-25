@@ -18,11 +18,11 @@ production:
   sessions:
     default:
       uri: mongodb://admin:dGaKsbGkMPBc@127.5.0.130:27017/
-      database: wallalemana
+      #database: wallalemana
       #hosts:
       #  - 127.5.0.130:27017
-      username: admin
-      password: dGaKsbGkMPBc
+      #username: admin
+      #password: dGaKsbGkMPBc
       options:
         skip_version_check: true
         safe: true
