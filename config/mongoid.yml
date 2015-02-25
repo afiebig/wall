@@ -17,7 +17,7 @@ test:
 production:
   sessions:
     default:
-      uri: mongodb://admin:dGaKsbGkMPBc@127.5.0.130:27017/
+      uri: mongodb://admin:dGaKsbGkMPBc@127.5.0.130:27017/wallalemana
       #database: wallalemana
       #hosts:
       #  - 127.5.0.130:27017
