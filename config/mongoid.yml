@@ -20,7 +20,7 @@ production:
       #uri: <%= ENV['MONGOHQ_URL'] %>
       database: wallalemana
       hosts:
-        - $OPENSHIFT_MONGODB_DB_HOST:$OPENSHIFT_MONGODB_DB_PORT
+        - wallalemana-afiebigc.rhcloud.com:27017
       username: admin
       password: dGaKsbGkMPBc
       options:
