@@ -20,7 +20,7 @@ production:
       #uri: <%= ENV['MONGOHQ_URL'] %>
       database: wallalemana
       hosts:
-        - wallalemana-afiebigc.rhcloud.com:27017
+        - ex-std-node185.prod.rhcloud.com:27017
       username: admin
       password: dGaKsbGkMPBc
       options:
